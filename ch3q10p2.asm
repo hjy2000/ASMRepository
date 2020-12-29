@@ -1,0 +1,15 @@
+DATAS SEGMENT
+word_var dw 10h,-5,3 dup(?)
+DATAS ENDS
+Stack    segment stack
+Stack    ends
+CODES SEGMENT
+ASSUME CS:CODES, DS:DATAS
+START:
+mov AX,DATAS
+mov DS,ax
+MOV AH,4cH
+INT 21H
+CODES ENDS
+	END START
+  
