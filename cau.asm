@@ -1,9 +1,9 @@
 DATAS SEGMENT
-x dw 2
-y dw 3
-z dw 4
-v dw 1
-rss dw ?
+x dw -1
+y dw 2
+z dw 3
+v dw ?
+
 DATAS ENDS
 Stack    segment stack
 Stack    ends
@@ -16,20 +16,24 @@ mov DS,ax
 
 mov ax,x                          
       
-imul y
-
-sub ax,6
-
+imul y;x*y
 mov dx,ax
 
-mov ax,v                        
-mov bx,5
+mov ax,x                        
+mov bx,8
 imul bx
 
-add ax,dx
+sub ax,dx
+
+add ax,9
+
+mov dx,ax;8x-x*y+9
+
 div z
 
-mov rss,ax
+mov v,ax
+
+mov dx,v
 
 MOV AH,4cH
 INT 21H
